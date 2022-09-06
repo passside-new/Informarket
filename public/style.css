@@ -1,0 +1,370 @@
+/*new_productに遷移するボタン*/
+.btn-post {
+	position: absolute;
+	position: fixed;
+	right:10%;
+	bottom:5%;
+	display:inline-block;
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	font-size:200%;
+	border-radius: 50%;
+	text-align: center;
+	transition:.5s;
+	overflow: hidden;
+	background:#87befd;
+	color:#fff;
+}
+
+/*共有*/
+/*リンクの下線消し*/
+a {
+	text-decoration:none;
+}
+
+.btn-post:hover{
+	background:#668ad8;
+}
+
+/*レビュー*/
+.rate-form {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.rate-form input[type=radio] {
+  display: none;
+}
+.rate-form label {
+  position: relative;
+  padding: 0 5px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 35px;
+}
+.rate-form label:hover {
+  color: #ffcc00;
+}
+.rate-form label:hover ~ label {
+  color: #ffcc00;
+}
+.rate-form input[type=radio]:checked ~ label {
+  color: #ffcc00;
+}
+
+/*catalog.html*/
+.catalog {
+	margin:auto;
+}
+
+.table_one {
+	text-align: center;
+	animation: SlideUp 1.0s;
+}
+.table_two {
+	text-align: center;
+	animation: SlideUp 1.4s;
+}
+.table_three {
+	text-align: center;
+	animation: SlideUp 1.8s;
+}
+.table_four {
+	text-align: center;
+	animation: SlideUp 2.2s;
+}
+.table_five {
+	text-align: center;
+	animation: SlideUp 2.6s;
+}
+
+@keyframes SlideUp {
+	0% {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.btn-submit {
+	font-size:1.2rem;
+	line-height:1.5;
+	position: relative;
+	display: inline-block;
+	padding: 0.4rem 1.2rem;
+	color: #fff;
+	background-color: #00bfff;
+	border-radius:100vh;
+}
+
+.btn-submit:hover{
+	color:#fff;
+	background: #87ceeb;
+}
+
+/*new_product.html*/
+/*半角数値のみ*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance:textfield;
+}
+
+body{
+    padding-top: 4px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align:left;
+}
+
+textarea{
+  resize: none;
+}
+
+/*header*/
+body {
+  margin: 0;
+  padding-top: 200px;
+  background-color: #e6e6e6;
+  font-size: 16px;
+  color: #222;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+.header {
+  width: 100%;
+  padding 30px 4% 10px;
+  background-color: #fff;
+  position: fixed;
+  top:0;
+}
+.header-list-left {
+  display:flex;
+  list-style: none;
+}
+
+.header-list-right {
+  list-style: none;
+  margin:0 0 0 auto;
+}
+
+.header-list-left li {
+  padding: 8px 25px;
+  border-bottom: 1px solid #000000;
+
+}
+
+.header-list-right li{
+  float:right;
+  margin: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.header-list a {
+  color: #4b4b4b;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+/*signin.html*/
+/*signup.html*/
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);*/
+*:focus {
+  outline: none;
+}
+
+#login_box {
+  position: relative;
+  margin: 5% auto;
+  width: 400px;
+  height: 400px;
+  background: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+	animation: SlideIn 1.6s;
+}
+
+#signIn_status,
+#signUp_status,
+#username,
+#email,
+#password,
+#login,
+#signUp {
+	margin: 10px 0 auto 25%;
+}
+
+#signIn_status {
+	padding-top: 20%;
+}
+
+#signUp_status {
+	padding-top: 10%;
+}
+
+#welcome {
+	text-align: center;
+	animation: SlideIn 1.6s;
+}
+
+@keyframes SlideIn {
+	0% {
+		opacity: 0;
+		transform: translateX(80px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-bottom: 2px solid #16a085;
+  color: #16a085;
+  transition: 0.2s ease;
+}
+
+input[type="submit"] {
+  margin-top: 28px;
+  width: 120px;
+  height: 32px;
+
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+#signUp {
+	background-color: #16a085;
+}
+
+#login {
+	background-color: #1e90ff;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+
+button.social-signin {
+  margin-bottom: 20px;
+  width: 220px;
+  height: 36px;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+button.social-signin:hover,
+button.social-signin:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+button.social-signin:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+/*logout.html*/
+.logout {
+	text-align: center;
+}
+
+#new_login {
+	display: inline-block;
+	height: 50px;
+	width: 100px;
+	line-height: 50px;
+	border-radius: 10%;
+	background:#16a085;
+	color: #f5f5f5;
+	animation: SlideUp 2.5s;
+}
+
+#new_login:hover {
+	background-color: #16a070;
+	height: 60px;
+	width: 120px;
+	line-height: 60px;
+}
+
+/*index.html*/
+.index_body {
+	text-align: center;
+	margin-top: auto;
+}
+
+.signUpButton,
+.signInButton {
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 30px;
+	padding: 1em 1em;
+	width: 100px;
+	color: #dddddd;
+	font-size: 20px;
+	font-weight: 700;
+	background-color: #16a085;
+	box-shadow: 0 0 10px rgba(0 0 0 / .2);
+	border-radius: 6px;
+	transition: 0.3s;
+	animation: SlideUp 2.0s;
+}
+
+.signUpButton {
+	background-color: #16a085;
+}
+
+.signInButton {
+	background-color: #1e90ff;
+}
+.signUpButton:hover,
+.signInButton:hover {
+	transform: translateY(3px);
+	box-shadow: 0 2px 0 #aaaaaa;
+}

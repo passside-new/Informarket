@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Informarket</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta http-equiv="Content-Style-Type"
+        content="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<!--ここから内容-->
+<body>
+  <div class="container">
+    <div class="navbar">
+      <!--タイトル-->
+      <h1>商品投稿</h1>
+    </div>
+
+    <!--投稿フォーム-->
+      <br>
+      <div>
+        <input type="file" name="image" accept="image/*" multiple="multiple" onchange="loadImage(this);">
+      </div>
+      <div id="imgPreviewField">
+      </div>
+      <br>
+      <!--商品名-->
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" >商品名 <span class="badge bg-danger">必須</span></label>
+        <div class="col-sm-9">
+          <p>
+            <input type="text" name="product_name" id="product_name" class="form-control" placeholder="商品名" />
+          </p>
+        </div>
+      </div>
+
+      <!--商品紹介-->
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">商品紹介 <span class="badge bg-danger">必須</span></label>
+        <div class="col-sm-9">
+          <p>
+            <textarea name="product_describe" id="product_describe"  rows="11" cols="50" minlength="50" maxlength="500" placeholder="商品紹介" required></textarea>
+            <style>
+              textarea{
+                resize:none;
+              }
+            </style>
+          </p>
+        </div>
+      </div>
+
+      <!--販売価格（入力を限定する必要がある）-->
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">販売価格 <span class="badge bg-danger">必須</span></label>
+        <div class="col-sm-9">
+          <p>
+            <input type="number" name="price" id="price" class="form-control" placeholder="0p" required/>
+
+
+          </p>
+        </div>
+      </div>
+
+      <!--タグ-->
+      <div class="row">
+        <label class="col-sm-3 col-form-label">タグ</label>
+
+        <div class="col-sm-9">
+
+          <select class="custom-select w-25" title="タグ" name="tag" id="tag">
+            <option selected="">タグを選択</option>
+            <option value="tag1">tag1</option>
+            <option value="tag2">tag2</option>
+            <option value="tag3">tag3</option>
+            <option value="tag4">tag4</option>
+            <option value="tag5">tag5</option>
+            <option value="tag6">tag6</option>
+            <option value="tag7">tag7</option>
+            <option value="tag8">tag8</option>
+            <option value="tag9">tag9</option>
+            <option value="tag10">tag10</option>
+
+          </select>
+        </div>
+
+      </div>
+      <!--確認ボタン-->
+      <div class="text-center my-5">
+        <input type="submit" id="btn_primary" name="btn_primary" value="投稿内容を確認する"/>
+    
+  </div>
+  <script type="text/javascript" src="./js/main.js">
+  </script>
+</body>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+  import { getDatabase, set, ref, update, get, child, push } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAKV9myWvVsqSP_z6zD6ipY1YtvUN3_Dqc",
+    authDomain: "myfirebase-54d4c.firebaseapp.com",
+    databaseURL: "https://myfirebase-54d4c-default-rtdb.firebaseio.com",
+    projectId: "myfirebase-54d4c",
+    storageBucket: "myfirebase-54d4c.appspot.com",
+    messagingSenderId: "774352724222",
+    appId: "1:774352724222:web:0b40ee42cf9314d934c5af",
+    measurementId: "G-3DZ6JKED7W"
+  };
+    // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth();
+
+        const user = auth.currentUser;
+        onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = user.uid;
+            const dbref=ref(database)
+            get(child(dbref, 'users/' + uid)).then((snapshot)=>{
+                if(snapshot.exists()){
+                    console.log(snapshot.val());
+                    var username=snapshot.val().username;
+                    var email= snapshot.val().email;
+                    var last_login = snapshot.val().last_login;
+                    var userpoint =snapshot.val().userpoint;
+                    btn_primary.addEventListener('click',(e) => {
+                      var product_name= document.getElementById('product_name');
+                      var product_describe = document.getElementById('product_describe');
+                      var price = document.getElementById('price');
+                      var tag = document.getElementById('tag');
+                      const dt = new Date();
+                      const base = 'http://127.0.0.1:5500/informarket/';
+                      const url1 = new URL('product_detail.html', base );
+                      const url2 = new URL('buy_check.html', base );
+                      const url3 = new URL('post_complete.html', base );
+                      const id = Math.floor( Math.random() * 10000000001);
+                      url1.hash = id;
+                      url2.hash = id;
+                      url3.hash = id;
+
+                      update(ref(database, 'product/' + id),{
+                        id: id,
+                        myproduct: url1,
+                        post_username: username,
+                        product_name: product_name.value,
+                        product_describe:product_describe.value,
+                        price: price.value,
+                        upload_date: dt.toLocaleString(),
+                      })
+                      update(ref(database, 'users/' + uid + '/myproduct/' + id),{
+                        url1
+                      })                  
+                      alert('Successful!');
+                      setTimeout(function(){
+                        location.href = './post_complete.html#'+ id;
+                      }, 1*1000);
+                      });
+                }else{
+                    alert("No data found");
+                }
+            })
+            .catch((error)=>{
+                alert("unsuccessful, error"+error);
+            });
+            
+        } else {
+            // User is signed out
+            location.replace("./index.html");
+        }
+        });
+</script>
+
+</html>

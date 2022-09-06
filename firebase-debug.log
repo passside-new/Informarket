@@ -1,0 +1,236 @@
+[debug] [2022-09-06T07:02:54.318Z] ----------------------------------------------------------------------
+[debug] [2022-09-06T07:02:54.320Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\aqfri\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-09-06T07:02:54.321Z] CLI Version:   11.8.0
+[debug] [2022-09-06T07:02:54.321Z] Platform:      win32
+[debug] [2022-09-06T07:02:54.321Z] Node Version:  v16.15.1
+[debug] [2022-09-06T07:02:54.333Z] Time:          Tue Sep 06 2022 16:02:54 GMT+0900 (日本標準時)
+[debug] [2022-09-06T07:02:54.333Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-06T07:02:54.338Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-09-06T07:02:54.432Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-06T07:02:54.432Z] > authorizing via signed-in user (fndishin5826@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\aqfri
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[debug] [2022-09-06T07:02:55.351Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-09-06T07:02:55.351Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-09-06T07:03:39.413Z] Using project from CLI flag: myfirebase-54d4c
+[debug] [2022-09-06T07:03:39.415Z] > refreshing access token with scopes: []
+[debug] [2022-09-06T07:03:39.419Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-09-06T07:03:39.419Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-09-06T07:03:39.694Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-09-06T07:03:39.694Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-09-06T07:03:39.708Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myfirebase-54d4c [none]
+[debug] [2022-09-06T07:03:40.193Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myfirebase-54d4c 200
+[debug] [2022-09-06T07:03:40.193Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myfirebase-54d4c {"projectId":"myfirebase-54d4c","projectNumber":"774352724222","displayName":"imformarket","name":"projects/myfirebase-54d4c","resources":{"hostingSite":"myfirebase-54d4c","realtimeDatabaseInstance":"myfirebase-54d4c-default-rtdb","storageBucket":"myfirebase-54d4c.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_9ca32413-479f-4e9d-9830-58c262b4af62"}
+[info] i  Using project myfirebase-54d4c (imformarket) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2022-09-06T07:03:40.213Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myfirebase-54d4c/services/firebasedatabase.googleapis.com [none]
+[debug] [2022-09-06T07:03:41.430Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myfirebase-54d4c/services/firebasedatabase.googleapis.com 200
+[debug] [2022-09-06T07:03:41.431Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myfirebase-54d4c/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2022-09-06T07:03:41.435Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/myfirebase-54d4c/locations/-/instances/myfirebase-54d4c-default-rtdb [none]
+[debug] [2022-09-06T07:03:41.953Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/myfirebase-54d4c/locations/-/instances/myfirebase-54d4c-default-rtdb 200
+[debug] [2022-09-06T07:03:41.954Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/myfirebase-54d4c/locations/-/instances/myfirebase-54d4c-default-rtdb {"name":"projects/774352724222/locations/us-central1/instances/myfirebase-54d4c-default-rtdb","project":"projects/774352724222","databaseUrl":"https://myfirebase-54d4c-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2022-09-06T07:03:41.970Z] >>> [apiv2][query] GET https://myfirebase-54d4c-default-rtdb.firebaseio.com/.settings/rules.json [none]
+[debug] [2022-09-06T07:03:42.443Z] <<< [apiv2][status] GET https://myfirebase-54d4c-default-rtdb.firebaseio.com/.settings/rules.json 200
+[debug] [2022-09-06T07:03:42.444Z] <<< [apiv2][body] GET https://myfirebase-54d4c-default-rtdb.firebaseio.com/.settings/rules.json [stream]
+[info] +  Database Rules for myfirebase-54d4c-default-rtdb have been written to database.rules.json. 
+[info] Future modifications to database.rules.json will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] i  Skipping write of public/404.html 
+[debug] [2022-09-06T07:05:04.875Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2022-09-06T07:05:05.029Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2022-09-06T07:05:05.030Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"9.9.4","browserURL":"https://www.gstatic.com/firebasejs/9.9.4/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/9.9.4/firebase.tgz"},"live":{"version":"9.9","browserURL":"https://www.gstatic.com/firebasejs/live/9.9/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/9.9/firebase.tgz"},"components":{"analytics":"https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/9.9.4/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js","auth/cordova":"https://www.gstatic.com/firebasejs/9.9.4/firebase-auth/cordova.js","auth/react-native":"https://www.gstatic.com/firebasejs/9.9.4/firebase-auth/react-native.js","functions":"https://www.gstatic.com/firebasejs/9.9.4/firebase-functions.js","firestore":"https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js","firestore/lite":"https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore/lite.js","installations":"https://www.gstatic.com/firebasejs/9.9.4/firebase-installations.js","storage":"https://www.gstatic.com/firebasejs/9.9.4/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/9.9.4/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/9.9.4/firebase-remote-config.js","messaging":"https://www.gstatic.com/firebasejs/9.9.4/firebase-messaging.js","messaging/sw":"https://www.gstatic.com/firebasejs/9.9.4/firebase-messaging/sw.js","database":"https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js","firestore.memory":"https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.memory.js"}}
+[info] i  Skipping write of public/index.html 
+[info] 
+[info] i  Didn't detect a .git folder. Assuming C:\Users\aqfri\Downloads\yuto_0906 is the project root. 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=654674777&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2022-09-06T07:05:16.586Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2022-09-06T07:05:16.586Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2022-09-06T07:05:16.960Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2022-09-06T07:05:16.961Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2022-09-06T07:05:16.974Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2022-09-06T07:05:17.541Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2022-09-06T07:05:17.541Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"fndishin5826","id":112927949,"node_id":"U_kgDOBrskzQ","avatar_url":"https://avatars.githubusercontent.com/u/112927949?v=4","gravatar_id":"","url":"https://api.github.com/users/fndishin5826","html_url":"https://github.com/fndishin5826","followers_url":"https://api.github.com/users/fndishin5826/followers","following_url":"https://api.github.com/users/fndishin5826/following{/other_user}","gists_url":"https://api.github.com/users/fndishin5826/gists{/gist_id}","starred_url":"https://api.github.com/users/fndishin5826/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/fndishin5826/subscriptions","organizations_url":"https://api.github.com/users/fndishin5826/orgs","repos_url":"https://api.github.com/users/fndishin5826/repos","events_url":"https://api.github.com/users/fndishin5826/events{/privacy}","received_events_url":"https://api.github.com/users/fndishin5826/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"public_repos":1,"public_gists":0,"followers":0,"following":0,"created_at":"2022-09-06T06:31:30Z","updated_at":"2022-09-06T06:31:30Z","private_gists":0,"total_private_repos":0,"owned_private_repos":0,"disk_usage":0,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] +  Success! Logged into GitHub as fndishin5826 
+[info] 
+[debug] [2022-09-06T07:06:05.213Z] >>> [apiv2][query] GET https://api.github.com/repos/fndishin5826/informarket/actions/secrets/public-key type=owner
+[debug] [2022-09-06T07:06:05.607Z] <<< [apiv2][status] GET https://api.github.com/repos/fndishin5826/informarket/actions/secrets/public-key 200
+[debug] [2022-09-06T07:06:05.608Z] <<< [apiv2][body] GET https://api.github.com/repos/fndishin5826/informarket/actions/secrets/public-key {"key_id":"568250167242549743","key":"FvQQi1rxn+il0BC4XA9QM/5KOHYZ2DL5eXpu5KEmITM="}
+[debug] [2022-09-06T07:06:05.623Z] >>> [apiv2][query] GET https://api.github.com/repos/fndishin5826/informarket [none]
+[debug] [2022-09-06T07:06:05.938Z] <<< [apiv2][status] GET https://api.github.com/repos/fndishin5826/informarket 200
+[debug] [2022-09-06T07:06:05.940Z] <<< [apiv2][body] GET https://api.github.com/repos/fndishin5826/informarket {"id":533200673,"node_id":"R_kgDOH8f_IQ","name":"informarket","full_name":"fndishin5826/informarket","private":false,"owner":{"login":"fndishin5826","id":112927949,"node_id":"U_kgDOBrskzQ","avatar_url":"https://avatars.githubusercontent.com/u/112927949?v=4","gravatar_id":"","url":"https://api.github.com/users/fndishin5826","html_url":"https://github.com/fndishin5826","followers_url":"https://api.github.com/users/fndishin5826/followers","following_url":"https://api.github.com/users/fndishin5826/following{/other_user}","gists_url":"https://api.github.com/users/fndishin5826/gists{/gist_id}","starred_url":"https://api.github.com/users/fndishin5826/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/fndishin5826/subscriptions","organizations_url":"https://api.github.com/users/fndishin5826/orgs","repos_url":"https://api.github.com/users/fndishin5826/repos","events_url":"https://api.github.com/users/fndishin5826/events{/privacy}","received_events_url":"https://api.github.com/users/fndishin5826/received_events","type":"User","site_admin":false},"html_url":"https://github.com/fndishin5826/informarket","description":null,"fork":false,"url":"https://api.github.com/repos/fndishin5826/informarket","forks_url":"https://api.github.com/repos/fndishin5826/informarket/forks","keys_url":"https://api.github.com/repos/fndishin5826/informarket/keys{/key_id}","collaborators_url":"https://api.github.com/repos/fndishin5826/informarket/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/fndishin5826/informarket/teams","hooks_url":"https://api.github.com/repos/fndishin5826/informarket/hooks","issue_events_url":"https://api.github.com/repos/fndishin5826/informarket/issues/events{/number}","events_url":"https://api.github.com/repos/fndishin5826/informarket/events","assignees_url":"https://api.github.com/repos/fndishin5826/informarket/assignees{/user}","branches_url":"https://api.github.com/repos/fndishin5826/informarket/branches{/branch}","tags_url":"https://api.github.com/repos/fndishin5826/informarket/tags","blobs_url":"https://api.github.com/repos/fndishin5826/informarket/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/fndishin5826/informarket/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/fndishin5826/informarket/git/refs{/sha}","trees_url":"https://api.github.com/repos/fndishin5826/informarket/git/trees{/sha}","statuses_url":"https://api.github.com/repos/fndishin5826/informarket/statuses/{sha}","languages_url":"https://api.github.com/repos/fndishin5826/informarket/languages","stargazers_url":"https://api.github.com/repos/fndishin5826/informarket/stargazers","contributors_url":"https://api.github.com/repos/fndishin5826/informarket/contributors","subscribers_url":"https://api.github.com/repos/fndishin5826/informarket/subscribers","subscription_url":"https://api.github.com/repos/fndishin5826/informarket/subscription","commits_url":"https://api.github.com/repos/fndishin5826/informarket/commits{/sha}","git_commits_url":"https://api.github.com/repos/fndishin5826/informarket/git/commits{/sha}","comments_url":"https://api.github.com/repos/fndishin5826/informarket/comments{/number}","issue_comment_url":"https://api.github.com/repos/fndishin5826/informarket/issues/comments{/number}","contents_url":"https://api.github.com/repos/fndishin5826/informarket/contents/{+path}","compare_url":"https://api.github.com/repos/fndishin5826/informarket/compare/{base}...{head}","merges_url":"https://api.github.com/repos/fndishin5826/informarket/merges","archive_url":"https://api.github.com/repos/fndishin5826/informarket/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/fndishin5826/informarket/downloads","issues_url":"https://api.github.com/repos/fndishin5826/informarket/issues{/number}","pulls_url":"https://api.github.com/repos/fndishin5826/informarket/pulls{/number}","milestones_url":"https://api.github.com/repos/fndishin5826/informarket/milestones{/number}","notifications_url":"https://api.github.com/repos/fndishin5826/informarket/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/fndishin5826/informarket/labels{/name}","releases_url":"https://api.github.com/repos/fndishin5826/informarket/releases{/id}","deployments_url":"https://api.github.com/repos/fndishin5826/informarket/deployments","created_at":"2022-09-06T07:00:37Z","updated_at":"2022-09-06T07:00:37Z","pushed_at":"2022-09-06T07:00:37Z","git_url":"git://github.com/fndishin5826/informarket.git","ssh_url":"git@github.com:fndishin5826/informarket.git","clone_url":"https://github.com/fndishin5826/informarket.git","svn_url":"https://github.com/fndishin5826/informarket","homepage":null,"size":0,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_projects":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"archived":false,"disabled":false,"open_issues_count":0,"license":null,"allow_forking":true,"is_template":false,"web_commit_signoff_required":false,"topics":[],"visibility":"public","forks":0,"open_issues":0,"watchers":0,"default_branch":"main","permissions":{"admin":true,"maintain":true,"push":true,"triage":true,"pull":true},"temp_clone_token":"","allow_squash_merge":true,"allow_merge_commit":true,"allow_rebase_merge":true,"allow_auto_merge":false,"delete_branch_on_merge":false,"allow_update_branch":false,"use_squash_pr_title_as_default":false,"squash_merge_commit_message":"COMMIT_MESSAGES","squash_merge_commit_title":"COMMIT_OR_PR_TITLE","merge_commit_message":"PR_TITLE","merge_commit_title":"MERGE_MESSAGE","network_count":0,"subscribers_count":1}
+[debug] [2022-09-06T07:06:05.947Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/myfirebase-54d4c/serviceAccounts [none]
+[debug] [2022-09-06T07:06:05.948Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/myfirebase-54d4c/serviceAccounts {"accountId":"github-action-533200673","serviceAccount":{"displayName":"GitHub Actions (fndishin5826/informarket)","description":"A service account with permission to deploy to Firebase Hosting for the GitHub repository fndishin5826/informarket"}}
+[debug] [2022-09-06T07:06:07.544Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/myfirebase-54d4c/serviceAccounts 200
+[debug] [2022-09-06T07:06:07.545Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/myfirebase-54d4c/serviceAccounts [omitted]
+[debug] [2022-09-06T07:06:07.547Z] >>> [apiv2][query] GET https://iam.googleapis.com/v1/projects/myfirebase-54d4c/serviceAccounts/github-action-533200673@myfirebase-54d4c.iam.gserviceaccount.com [none]
+[debug] [2022-09-06T07:06:07.550Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebase-54d4c:getIamPolicy [none]
+[debug] [2022-09-06T07:06:08.268Z] <<< [apiv2][status] GET https://iam.googleapis.com/v1/projects/myfirebase-54d4c/serviceAccounts/github-action-533200673@myfirebase-54d4c.iam.gserviceaccount.com 200
+[debug] [2022-09-06T07:06:08.268Z] <<< [apiv2][body] GET https://iam.googleapis.com/v1/projects/myfirebase-54d4c/serviceAccounts/github-action-533200673@myfirebase-54d4c.iam.gserviceaccount.com {"name":"projects/myfirebase-54d4c/serviceAccounts/github-action-533200673@myfirebase-54d4c.iam.gserviceaccount.com","projectId":"myfirebase-54d4c","uniqueId":"104683450729349495753","email":"github-action-533200673@myfirebase-54d4c.iam.gserviceaccount.com","displayName":"GitHub Actions (fndishin5826/informarket)","etag":"MDEwMjE5MjA=","description":"A service account with permission to deploy to Firebase Hosting for the GitHub repository fndishin5826/informarket","oauth2ClientId":"104683450729349495753"}
+[debug] [2022-09-06T07:06:08.567Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebase-54d4c:getIamPolicy 200
+[debug] [2022-09-06T07:06:08.567Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebase-54d4c:getIamPolicy {"version":1,"etag":"BwXn68//vPg=","bindings":[{"role":"roles/cloudfunctions.serviceAgent","members":["serviceAccount:service-774352724222@gcf-admin-robot.iam.gserviceaccount.com"]},{"role":"roles/editor","members":["serviceAccount:myfirebase-54d4c@appspot.gserviceaccount.com"]},{"role":"roles/firebase.managementServiceAgent","members":["serviceAccount:firebase-service-account@firebase-sa-management.iam.gserviceaccount.com"]},{"role":"roles/firebase.sdkAdminServiceAgent","members":["serviceAccount:firebase-adminsdk-6kvqg@myfirebase-54d4c.iam.gserviceaccount.com"]},{"role":"roles/firebaseauth.admin","members":["serviceAccount:firebase-adminsdk-6kvqg@myfirebase-54d4c.iam.gserviceaccount.com"]},{"role":"roles/firebasedatabase.admin","members":["serviceAccount:firebase-adminsdk-6kvqg@myfirebase-54d4c.iam.gserviceaccount.com"]},{"role":"roles/firebaserules.system","members":["serviceAccount:service-774352724222@firebase-rules.iam.gserviceaccount.com"]},{"role":"roles/firestore.serviceAgent","members":["serviceAccount:service-774352724222@gcp-sa-firestore.iam.gserviceaccount.com"]},{"role":"roles/iam.serviceAccountTokenCreator","members":["serviceAccount:firebase-adminsdk-6kvqg@myfirebase-54d4c.iam.gserviceaccount.com"]},{"role":"roles/owner","members":["user:aqfriendship@gmail.com","user:fndishin5826@gmail.com","user:kuma20010906@gmail.com","user:passside.new@gmail.com","user:tana171126@gmail.com"]},{"role":"roles/pubsub.serviceAgent","members":["serviceAccount:service-774352724222@gcp-sa-pubsub.iam.gserviceaccount.com"]},{"role":"roles/storage.admin","members":["serviceAccount:firebase-adminsdk-6kvqg@myfirebase-54d4c.iam.gserviceaccount.com"]}]}
+[debug] [2022-09-06T07:06:08.569Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebase-54d4c:setIamPolicy [none]
+[debug] [2022-09-06T07:06:08.569Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebase-54d4c:setIamPolicy {"policy":{"version":1,"etag":"BwXn68//vPg=","bindings":[{"role":"roles/cloudfunctions.serviceAgent","members":["serviceAccount:service-774352724222@gcf-admin-robot.iam.gserviceaccount.com"]},{"role":"roles/editor","members":["serviceAccount:myfirebase-54d4c@appspot.gserviceaccount.com"]},{"role":"roles/firebase.managementServiceAgent","members":["serviceAccount:firebase-service-account@firebase-sa-management.iam.gserviceaccount.com"]},{"role":"roles/firebase.sdkAdminServiceAgent","members":["serviceAccount:firebase-adminsdk-6kvqg@myfirebase-54d4c.iam.gserviceaccount.com"]},{"role":"roles/firebaseauth.admin","members":["serviceAccount:firebase-adminsdk-6kvqg@myfirebase-54d4c.iam.gserviceaccount.com","serviceAccount:github-action-533200673@myfirebase-54d4c.iam.gserviceaccount.com"]},{"role":"roles/firebasedatabase.admin","members":["serviceAccount:firebase-adminsdk-6kvqg@myfirebase-54d4c.iam.gserviceaccount.com"]},{"role":"roles/firebaserules.system","members":["serviceAccount:service-774352724222@firebase-rules.iam.gserviceaccount.com"]},{"role":"roles/firestore.serviceAgent","members":["serviceAccount:service-774352724222@gcp-sa-firestore.iam.gserviceaccount.com"]},{"role":"roles/iam.serviceAccountTokenCreator","members":["serviceAccount:firebase-adminsdk-6kvqg@myfirebase-54d4c.iam.gserviceaccount.com"]},{"role":"roles/owner","members":["user:aqfriendship@gmail.com","user:fndishin5826@gmail.com","user:kuma20010906@gmail.com","user:passside.new@gmail.com","user:tana171126@gmail.com"]},{"role":"roles/pubsub.serviceAgent","members":["serviceAccount:service-774352724222@gcp-sa-pubsub.iam.gserviceaccount.com"]},{"role":"roles/storage.admin","members":["serviceAccount:firebase-adminsdk-6kvqg@myfirebase-54d4c.iam.gserviceaccount.com"]},{"role":"roles/serviceusage.apiKeysViewer","members":["serviceAccount:github-action-533200673@myfirebase-54d4c.iam.gserviceaccount.com"]},{"role":"roles/firebasehosting.admin","members":["serviceAccount:github-action-533200673@myfirebase-54d4c.iam.gserviceaccount.com"]},{"role":"roles/run.viewer","members":["serviceAccount:github-action-533200673@myfirebase-54d4c.iam.gserviceaccount.com"]}]},"updateMask":"bindings"}
+[debug] [2022-09-06T07:06:10.246Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebase-54d4c:setIamPolicy 500
+[debug] [2022-09-06T07:06:10.247Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebase-54d4c:setIamPolicy {"error":{"code":500,"message":"Internal error encountered.","status":"INTERNAL"}}
+[error] 
+[error] Error: HTTP Error: 500, Internal error encountered.
+[debug] [2022-09-06T07:06:10.448Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "Internal error encountered.",
+      "status": "INTERNAL"
+    }
+  },
+  "response": {
+    "statusCode": 500
+  }
+}
+[debug] [2022-09-06T07:06:17.777Z] ----------------------------------------------------------------------
+[debug] [2022-09-06T07:06:17.779Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\aqfri\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-09-06T07:06:17.779Z] CLI Version:   11.8.0
+[debug] [2022-09-06T07:06:17.780Z] Platform:      win32
+[debug] [2022-09-06T07:06:17.780Z] Node Version:  v16.15.1
+[debug] [2022-09-06T07:06:17.781Z] Time:          Tue Sep 06 2022 16:06:17 GMT+0900 (日本標準時)
+[debug] [2022-09-06T07:06:17.782Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-06T07:06:17.857Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-06T07:06:17.858Z] > authorizing via signed-in user (fndishin5826@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\aqfri
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[debug] [2022-09-06T07:35:26.703Z] ----------------------------------------------------------------------
+[debug] [2022-09-06T07:35:26.705Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\aqfri\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-09-06T07:35:26.706Z] CLI Version:   11.8.0
+[debug] [2022-09-06T07:35:26.707Z] Platform:      win32
+[debug] [2022-09-06T07:35:26.707Z] Node Version:  v16.15.1
+[debug] [2022-09-06T07:35:26.716Z] Time:          Tue Sep 06 2022 16:35:26 GMT+0900 (日本標準時)
+[debug] [2022-09-06T07:35:26.716Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-06T07:35:26.800Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-06T07:35:26.801Z] > authorizing via signed-in user (fndishin5826@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\aqfri\Downloads\informarket-main (1)\informarket-main
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-09-06T07:35:49.788Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2022-09-06T07:35:50.677Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2022-09-06T07:35:50.678Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project myfirebase-54d4c (imformarket) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2022-09-06T07:35:54.451Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myfirebase-54d4c/services/firebasedatabase.googleapis.com [none]
+[debug] [2022-09-06T07:35:56.791Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myfirebase-54d4c/services/firebasedatabase.googleapis.com 200
+[debug] [2022-09-06T07:35:56.792Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myfirebase-54d4c/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2022-09-06T07:35:56.797Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/myfirebase-54d4c/locations/-/instances/myfirebase-54d4c-default-rtdb [none]
+[debug] [2022-09-06T07:35:57.409Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/myfirebase-54d4c/locations/-/instances/myfirebase-54d4c-default-rtdb 200
+[debug] [2022-09-06T07:35:57.410Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/myfirebase-54d4c/locations/-/instances/myfirebase-54d4c-default-rtdb {"name":"projects/774352724222/locations/us-central1/instances/myfirebase-54d4c-default-rtdb","project":"projects/774352724222","databaseUrl":"https://myfirebase-54d4c-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2022-09-06T07:36:08.248Z] >>> [apiv2][query] GET https://myfirebase-54d4c-default-rtdb.firebaseio.com/.settings/rules.json [none]
+[debug] [2022-09-06T07:36:08.765Z] <<< [apiv2][status] GET https://myfirebase-54d4c-default-rtdb.firebaseio.com/.settings/rules.json 200
+[debug] [2022-09-06T07:36:08.765Z] <<< [apiv2][body] GET https://myfirebase-54d4c-default-rtdb.firebaseio.com/.settings/rules.json [stream]
+[info] +  Database Rules for myfirebase-54d4c-default-rtdb have been written to database.rules.json. 
+[info] Future modifications to database.rules.json will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2022-09-06T07:36:58.873Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2022-09-06T07:36:59.020Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2022-09-06T07:36:59.021Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"9.9.4","browserURL":"https://www.gstatic.com/firebasejs/9.9.4/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/9.9.4/firebase.tgz"},"live":{"version":"9.9","browserURL":"https://www.gstatic.com/firebasejs/live/9.9/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/9.9/firebase.tgz"},"components":{"analytics":"https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/9.9.4/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js","auth/cordova":"https://www.gstatic.com/firebasejs/9.9.4/firebase-auth/cordova.js","auth/react-native":"https://www.gstatic.com/firebasejs/9.9.4/firebase-auth/react-native.js","functions":"https://www.gstatic.com/firebasejs/9.9.4/firebase-functions.js","firestore":"https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js","firestore/lite":"https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore/lite.js","installations":"https://www.gstatic.com/firebasejs/9.9.4/firebase-installations.js","storage":"https://www.gstatic.com/firebasejs/9.9.4/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/9.9.4/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/9.9.4/firebase-remote-config.js","messaging":"https://www.gstatic.com/firebasejs/9.9.4/firebase-messaging.js","messaging/sw":"https://www.gstatic.com/firebasejs/9.9.4/firebase-messaging/sw.js","database":"https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js","firestore.memory":"https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.memory.js"}}
+[info] +  Wrote public/index.html 
+[info] 
+=== Storage Setup
+[info] 
+[info] Firebase Storage Security Rules allow you to define how and when to allow
+[info] uploads and downloads. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2022-09-06T07:47:00.469Z] Error: kill ENOSYS
+    at process.kill (node:internal/process/per_thread:220:13)
+    at process.listener (C:\Users\aqfri\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\signal-exit\index.js:95:15)
+    at process.emit (node:events:527:28)
+[error] 
+[error] Error: An unexpected error has occurred.
