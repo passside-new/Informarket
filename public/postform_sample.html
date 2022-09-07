@@ -99,7 +99,7 @@
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-  import { getDatabase, set, ref, update, get, child, push } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
+  import { getDatabase, set, ref, update, get, child, onValue} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -127,6 +127,7 @@
             // https://firebase.google.com/docs/reference/js/firebase.User
             const uid = user.uid;
             const dbref=ref(database)
+            var id=1;
             get(child(dbref, 'users/' + uid)).then((snapshot)=>{
                 if(snapshot.exists()){
                     console.log(snapshot.val());
@@ -134,6 +135,16 @@
                     var email= snapshot.val().email;
                     var last_login = snapshot.val().last_login;
                     var userpoint =snapshot.val().userpoint;
+                    onValue( ref(database, '/product'), (snapshot) => {
+                          Object.values(snapshot.val()).forEach(item => {
+                            while(id===item.id){
+                              id++;
+                            }console.log(id);
+                              // ここでHTMLへappendする
+                          })
+                      }, {
+                        onlyOnce: true
+                      })
                     btn_primary.addEventListener('click',(e) => {
                       var product_name= document.getElementById('product_name');
                       var product_describe = document.getElementById('product_describe');
@@ -144,28 +155,28 @@
                       const url1 = new URL('product_detail.html', base );
                       const url2 = new URL('buy_check.html', base );
                       const url3 = new URL('post_complete.html', base );
-                      const id = Math.floor( Math.random() * 10000000001);
+
                       url1.hash = id;
                       url2.hash = id;
                       url3.hash = id;
 
-                      update(ref(database, 'product/' + id),{
-                        id: id,
-                        myproduct: url1,
-                        post_username: username,
-                        product_name: product_name.value,
-                        product_describe:product_describe.value,
-                        price: price.value,
-                        upload_date: dt.toLocaleString(),
-                      })
-                      update(ref(database, 'users/' + uid + '/myproduct/' + id),{
-                        url1
-                      })                  
-                      alert('Successful!');
-                      setTimeout(function(){
-                        location.href = './post_complete.html#'+ id;
-                      }, 1*1000);
-                      });
+                        update(ref(database, 'product/' + id),{
+                          id: id,
+                          myproduct: url1,
+                          post_username: username,
+                          product_name: product_name.value,
+                          product_describe:product_describe.value,
+                          price: price.value,
+                          upload_date: dt.toLocaleString(),
+                        })
+                        update(ref(database, 'users/' + uid + '/myproduct/' + id),{
+                          url1
+                        })                  
+                        alert('Successful!');
+                        setTimeout(function(){
+                          location.href = './post_complete.html#'+ id;
+                        }, 1*1000);
+                    });
                 }else{
                     alert("No data found");
                 }
