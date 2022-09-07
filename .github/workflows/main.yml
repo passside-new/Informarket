@@ -1,23 +1,24 @@
-name: deploy_to_firebase_hosting
+name: Firebase Deploy
 
 on:
   push:
-    branches:
-
+    braches: 
       - master
 
 jobs:
-  deploy_to_firebase_hosting:
-
-    runs-on: src
-
+  firebase:
+    name: Build and Deploy Firebase Hosting
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@master
-
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn
+      - name: Build vue contents
+        run: yarn build
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy
+          args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
