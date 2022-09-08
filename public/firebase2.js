@@ -95,6 +95,7 @@
                 url.hash = id;
 
                 update(dRef(database, 'product/' + id),{
+                  uid: uid,
                   id: id,
                   myproduct: url,
                   post_username: username,
