@@ -71,6 +71,18 @@
                 document.getElementById("product_name").textContent += product_name;
                 document.getElementById("product_describe").textContent += product_describe;
                 document.getElementById("price").textContent += price;
+            
+                getDownloadURL(sRef(storage, `file/${id}.${ext}`)).then((url)=>{
+                  const img = document.getElementById("image");
+                  console.log(url);
+                  console.log(img);
+                  console.log(img.src);
+                  // img.setAttribute('src', url);
+                  img.src = url;
+                },(err)=>{
+                  console.log("error", err);
+                }
+                );
                 
 
                 //var tag = ここも;
