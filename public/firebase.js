@@ -37,7 +37,17 @@ onAuthStateChanged(auth, (user) => {
       if (file.files.length == 0) {
         alert("空です");
       } else {
-        const id = Math.floor( Math.random() * 10000000001);
+        var id = 1;
+        onValue( ref(database, 'product/'), (snapshot) => {
+        Object.values(snapshot.val()).forEach(item => {
+          console.log(item.URL)
+          while(id===item.id){
+            id++;
+          }console.log(id);
+        })
+        }, {
+          onlyOnce: true
+        })
         const fileContent = file.files[0];
         const name = fileContent.name;
         const ext = name.split('.').pop();
