@@ -44,11 +44,12 @@
 
       const uid = user.uid;
       const dbref=dRef(database)
+
       get(child(dbref, 'users/' + uid)).then((snapshot)=>{
           if(snapshot.exists()){
               console.log(snapshot.val());
               var username=snapshot.val().username;
-
+              
                 for (let c of cookiesArray){
                   var cArray = c.split('=');
                   if (cArray[0].trim(' ') === 'fileName') {
@@ -77,12 +78,10 @@
                 const dt = new Date();
                 const base = 'http://127.0.0.1:5500/informarket/';
                 const url = new URL('product_detail.html', base );
-                // const url2 = new URL('buy_check.html', base );
-                // const url3 = new URL('post_complete.html', base );
-
                 url.hash = id;
 
                 update(dRef(database, 'product/' + id),{
+                  uid: uid,
                   id: id,
                   myproduct: url,
                   post_username: username,
