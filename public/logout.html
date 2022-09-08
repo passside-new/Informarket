@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>Informarket</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <div class="header" style="text-align:left">
-      <div class="header-logo">
-        <a href="catalog.html"><img src="image/logo-sample.png" height="70" width="70"></a>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <title>Informarket</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <div class="header" style="text-align:left">
+    <div class="header-logo">
+      <a href="homepage.html"><img src="image/logo-sample.png" height="70" width="70"></a>
     </div>
-  </head>
-<body>
+  </div>
+</head>
+<body class="logout">
   <h1>ログアウト</h1>
+  <br>
   <p>ログアウトしました。</p>
-  <p><a href="./index.html">LOGIN</a></p>
+  <br>
+  <a id="new_login" href="signin.html">LOGIN</a>
 </body>
 <script type="module">
   // Import the functions you need from the SDKs you need
@@ -33,7 +35,7 @@
     messagingSenderId: "774352724222",
     appId: "1:774352724222:web:0b40ee42cf9314d934c5af",
     measurementId: "G-3DZ6JKED7W"
-  }; 
+  };
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);

@@ -1,28 +1,28 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Informarket</title>
-    <link rel="stylesheet" href="cssFile.css">
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <div class="header" style="text-align:left">
-      <div class="header-logo">
-        <a href="catalog.html"><img src="image/logo-sample.png" height="70" width="70"></a>
-      </div>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Informarket</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <div class="header" style="text-align:left">
+    <div class="header-logo">
+      <a href="homepage.html"><img src="image/logo-sample.png" height="70" width="70"></a>
     </div>
-  </head>
+  </div>
+</head>
 
 <body>
-  
-<div id="login-box">
-  <div>
-    <h1 id='status'>login</h1>
-    <input type="text" id="email" name="email" placeholder="E-mail" />
-    <input type="password" id="password" name="password" placeholder="Password" />
-    
-    <input type="submit" id='login' name="login" value="Login" />
-
+  <a href="index.html" class="btn_back">back</a>
+  <h1 id="welcome">Welcome</h1>
+  <div id="login_box">
+    <h1 id="signIn_status">Login</h1>
+    <div class="signin_input">
+      <input type="text" id="email" name="email" placeholder="E-mail" /><br>
+      <input type="password" id="password" name="password" placeholder="Password" /><br>
+      <input type="submit" id='login' name="login" value="Login" />
+    </div>
   </div>
-</div>
+  <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 <script type="module">
@@ -43,7 +43,7 @@
     messagingSenderId: "774352724222",
     appId: "1:774352724222:web:0b40ee42cf9314d934c5af",
     measurementId: "G-3DZ6JKED7W"
-  }; 
+  };
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
@@ -55,7 +55,7 @@
    var password = document.getElementById('password').value;
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-        // Signed in 
+        // Signed in
         const user = userCredential.user;
 
         const dt = new Date();

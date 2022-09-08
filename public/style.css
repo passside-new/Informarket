@@ -17,6 +17,24 @@
 	color:#fff;
 }
 
+/*btn_primary*/
+.btn_primary {
+	font-size:1.2rem;
+	line-height:1.5;
+	position: relative;
+	display: inline-block;
+	padding: 0.6rem 2.0rem;
+	color: #fff;
+	background-color: #6a5acd;
+	border-radius:50px;
+	transition: 0.5s;
+}
+
+.btn_primary:hover {
+	background-color: #1e90ff;
+	color: #fff;
+	transition: 0.5s;
+}
 /*共有*/
 /*リンクの下線消し*/
 a {
@@ -53,11 +71,14 @@ a {
   color: #ffcc00;
 }
 
-/*catalog.html*/
+/*homepage.html*/
 .catalog {
-	margin:auto;
+	margin:0 auto;
 }
 
+.catalog p {
+	color: #444;
+}
 .table_one {
 	text-align: center;
 	animation: SlideUp 1.0s;
@@ -79,6 +100,7 @@ a {
 	animation: SlideUp 2.6s;
 }
 
+/*animation*/
 @keyframes SlideUp {
 	0% {
 		opacity: 0;
@@ -87,6 +109,26 @@ a {
 	100% {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+
+@keyframes SlideIn {
+	0% {
+		opacity: 0;
+		transform: translateX(80px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
 	}
 }
 
@@ -106,20 +148,54 @@ a {
 	background: #87ceeb;
 }
 
-/*new_product.html*/
+/*postform_sample.html*/
 /*半角数値のみ*/
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+.container input[type="number"]::-webkit-inner-spin-button,
+.container input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
   -moz-appearance:textfield;
 }
 
-body{
-    padding-top: 4px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    text-align:left;
+.container input[type="number"],
+.container input[type="text"] {
+	box-sizing: border-box;
+	width: 220px;
+	height: 32px;
+}
+
+.container {
+  padding-top: 4px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  text-align:left;
+}
+
+input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.upload_btn label {
+  position: relative;
+  background-color: #888;
+  padding: 5px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.21);
+  border: solid 1px #888;
+  border-radius: 100px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+  transition: all ease-in-out 0.1s;
+  cursor: pointer;
+}
+
+.upload_btn label:hover {
+	border: solid 1px #aaa;
+  background-color: #aaa;
 }
 
 textarea{
@@ -129,8 +205,7 @@ textarea{
 /*header*/
 body {
   margin: 0;
-  padding-top: 200px;
-  background-color: #e6e6e6;
+
   font-size: 16px;
   color: #222;
   font-family: 'Roboto', sans-serif;
@@ -139,8 +214,9 @@ body {
 .header {
   width: 100%;
   padding 30px 4% 10px;
-  background-color: #fff;
-  position: fixed;
+	background-color: white;
+  position: sticky;
+	z-index: 50;
   top:0;
 }
 .header-list-left {
@@ -150,18 +226,18 @@ body {
 
 .header-list-right {
   list-style: none;
-  margin:0 0 0 auto;
+  margin:0 0 0 30px;
 }
 
 .header-list-left li {
-  padding: 8px 25px;
+  padding: 0 25px;
   border-bottom: 1px solid #000000;
 
 }
 
 .header-list-right li{
   float:right;
-  margin: 0 0 0 20px;
+  margin: 0 20px 0 0;
   font-size: 14px;
 }
 
@@ -215,19 +291,12 @@ h1 {
 	animation: SlideIn 1.6s;
 }
 
-@keyframes SlideIn {
-	0% {
-		opacity: 0;
-		transform: translateX(80px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
 
-input[type="text"],
-input[type="password"] {
+
+.signin_input input[type="text"],
+.signin_input input[type="password"],
+.signup_input input[type="text"],
+.signup_input input[type="password"] {
   display: block;
   box-sizing: border-box;
   margin-bottom: 20px;
@@ -242,14 +311,21 @@ input[type="password"] {
   transition: 0.2s ease;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+.signup_input input[type="text"]:focus,
+.signup_input input[type="password"]:focus {
   border-bottom: 2px solid #16a085;
   color: #16a085;
   transition: 0.2s ease;
 }
 
-input[type="submit"] {
+.signin_input input[type="text"]:focus,
+.signin_input input[type="password"]:focus {
+	border-bottom: 2px solid #1e90ff;
+	color: #1e90ff;
+	transition: 0.2s ease;
+}
+
+#login_box input[type="submit"] {
   margin-top: 28px;
   width: 120px;
   height: 32px;
@@ -272,14 +348,14 @@ input[type="submit"] {
 	background-color: #1e90ff;
 }
 
-input[type="submit"]:hover,
-input[type="submit"]:focus {
+#login_box input[type="submit"]:hover,
+#login_box input[type="submit"]:focus {
   opacity: 0.8;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.1s ease;
 }
 
-input[type="submit"]:active {
+#login_box input[type="submit"]:active {
   opacity: 1;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   transition: 0.1s ease;
@@ -336,14 +412,19 @@ button.social-signin:active {
 /*index.html*/
 .index_body {
 	text-align: center;
-	margin-top: auto;
+}
+.index_body h1 {
+	position: absolute;
+	top:140px;
+	left:35%;
+	font-size: 70px;
 }
 
 .signUpButton,
 .signInButton {
 	justify-content: space-between;
 	align-items: center;
-	margin: 0 30px;
+	margin: 0 70px;
 	padding: 1em 1em;
 	width: 100px;
 	color: #dddddd;
@@ -353,7 +434,7 @@ button.social-signin:active {
 	box-shadow: 0 0 10px rgba(0 0 0 / .2);
 	border-radius: 6px;
 	transition: 0.3s;
-	animation: SlideUp 2.0s;
+	animation: SlideUp 5.0s;
 }
 
 .signUpButton {
@@ -367,4 +448,328 @@ button.social-signin:active {
 .signInButton:hover {
 	transform: translateY(3px);
 	box-shadow: 0 2px 0 #aaaaaa;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+.index_body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 63px;
+}
+
+.title {
+  position: absolute;
+  width: 450px;
+  left: 50%;
+  margin-left: -225px;
+  height: 40px;
+  top: 50%;
+  margin-top: -30px;
+}
+
+.title p {
+  display: inline-block;
+  vertical-align: top;
+  margin: -100px 60px;
+}
+
+.word {
+  position: absolute;
+  width: 220px;
+  opacity: 0;
+}
+
+.letter {
+  display: inline-block;
+  position: relative;
+  float: left;
+  transform: translateZ(25px);
+  transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+  transform: rotateX(90deg);
+  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+  transform: rotateX(-90deg);
+}
+
+.letter.in {
+  transform: rotateX(0deg);
+  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.belize {
+  color: #2980b9;
+}
+
+.green {
+  color: #16a085;
+}
+
+/*back button*/
+.btn_back {
+	position: relative;
+	z-index: 0;
+	display: inline-block;
+	padding: 0 100px;
+	color: #333;
+	outline: none;
+}
+
+.btn_back::before {
+	content:'';
+	position: absolute;
+	bottom: -8px;
+	left: 36%;
+	width: 30%;
+	height: 1px;
+	background: #333;
+	transition: all .3s;
+}
+
+.btn_back::after {
+	content:'';
+	position: absolute;
+	bottom: -2px;
+	left: 34%;
+	width: 15px;
+	height: 1px;
+	background: #333;
+	transform: rotate(125deg);
+	transition: all .3s;
+}
+
+.btn_back:hover::before {
+	left: 30%;
+}
+
+.btn_back:hover::after {
+	left:28%;
+}
+
+/*search*/
+.search_box {
+	width:250px;
+	display: block;
+	margin: 0 auto;
+}
+
+input#search-bar {
+	margin: 0 30%;
+	width: 30%;
+	height: 45px;
+	padding: 0 20px;
+	font-size: 1rem;
+	border-radius: 10px;
+	border: 1px solid #666;
+	outline:none;
+}
+
+input#search-bar:focus {
+	border: 1px solid #9370db;
+	transition: 0.35s ease;
+	color: #9370db;
+}
+
+#search-bar:focus::-webkit-input-placeholder {
+	transition: all 0.45s ease;
+	opacity: 0;
+}
+
+#searchbar:focus::-moz-placeholder:focus {
+	transition: all 0.45s ease;
+	opacity: 0;
+}
+.search-icon {
+	position: relative;
+	z-index:0;
+  float: right;
+  width: 75px;
+  height: 75px;
+  top: -15px;
+  right: 36%;
+}
+
+/*product_detail*/
+.product_detail {
+	text-align: center;
+}
+
+.product_detail input[type="text"],
+.product_detail input[type="number"],
+.product_detail textarea {
+	text-align:
+}
+
+/*buy_check*/
+.buy_check {
+	text-align: center;
+}
+
+/*buy_complete*/
+/*post_check*/
+/*post_complete*/
+.buy_complete,
+.post_check,
+.post_complete {
+	text-align: center;
+}
+
+.btn_to_review {
+	position: relative;
+	display: inline-block;
+	padding: 0.3rem 1.0rem;
+	color: #666;
+	background-color: #ccc;
+	border-radius:50px;
+}
+.btn_to_review:hover {
+	background-color: #e6e6e6;
+	color: #888;
+}
+
+.table_buy_complete,
+.table_post_check,
+.table_post_complete {
+	margin: 0 auto;
+}
+
+/*mypage*/
+
+.mypage_body {
+	position: absolute;
+	top: 250px;
+	left: 0px;
+	padding: 2.0em 1.5em;
+	margin: 2em 30em;
+	font-weight: bold;
+	color: #6091d3;
+	border: solid 3px #6091d3;
+	border-radius: 10px;
+	animation: SlideIn 2.0s;
+}
+
+.mypage_body label {
+	font-size: 18px;
+}
+
+.mypage_body input[type="text"] {
+	position: relative;
+	left:0%;
+	width:100%;
+}
+#Username,
+#Email,
+#Last_login,
+#Userpoint {
+	border-width: 0;
+	font-size: 16px;
+}
+
+.mypage_list {
+	border: 2px dashed #2a77e0;
+
+	margin-right: 83%;
+	margin-bottom: 0px;
+	margin: 0 83% 0 10px;
+
+	color: #333;
+}
+
+.mypage_list li {
+	padding:10px;
+}
+
+
+/*menu-button*/
+.menu-btn {
+  position: fixed;
+  top: 180px;
+  right: 280px;
+  display: flex;
+  height: 60px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  z-index: 40;
+  background-color: #3584bb;
+	animation: fadeIn 2.0s;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  position: absolute;
+}
+.menu-btn span:before {
+  bottom: 8px;
+}
+.menu-btn span:after {
+  top: 8px;
+}
+#menu-btn-check:checked ~ .menu-btn span {
+  background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+#menu-btn-check {
+	display:none;
+}
+.menu-content ul {
+    padding: 100px 10px 0;
+}
+.menu-content ul li {
+    border-bottom: solid 1px #ffffff;
+    list-style: none;
+		margin-bottom: 15px;
+}
+.menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    color:#ffffff;
+    text-decoration: none;
+    padding: 9px 15px 10px 0;
+    position: relative;
+}
+.menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 11px;
+    top: 16px;
+}
+.menu-content {
+    width: 25%;
+    height: 100%;
+    position: fixed;
+    top: 165px;
+    left: 100%;/*leftの値を変更してメニューを画面外へ*/
+    z-index: 30;
+    background-color: #3584bb;
+    transition: all 0.7s;/*アニメーション設定*/
+}
+#menu-btn-check:checked ~ .menu-content {
+    left: 75%;/*メニューを画面内へ*/
 }

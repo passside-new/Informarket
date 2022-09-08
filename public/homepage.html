@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>Informarket</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <div class="header" style="text-align:left">
-      <div class="header-logo">
-        <a href="catalog.html"><img src="image/logo-sample.png" height="140" width="140"></a>
-      </div>
-      <nav class="header-list">
-        <ul class="header-list-right">
-          <li><a href="logout.html" id="header-right">LOGOUT</a></li>
-          <li><a href="postform_sample.html">POST</a></li>
-          <li><a href="mypage.html">MYPAGE</a></li>
-        </ul>
-        <br>
-        <ul class="header-list-left">
-          <li><a href="catalog.html">CATALOG</a></li>
-          <li><a href="tag_manage.html">TAG</a></li>
-        </ul>
-      </nav>
+<head>
+  <meta charset="utf-8">
+  <title>Informarket</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <div class="header" style="text-align:left">
+    <div class="header-logo">
+      <a href="homepage.html"><img src="image/logo-sample.png" height="100" width="100"></a>
     </div>
-  </head>
+    <nav class="header-list">
+      <ul class="header-list-right">
+        <li><a href="logout.html" id="header-right">LOGOUT</a></li>
+        <li><a href="point.html">POINT</a></li>
+        <li><a href="mypage.html">MYPAGE</a></li>
+      </ul>
+      <br>
+      <ul class="header-list-left">
+        <li><a href="homepage.html">CATALOG</a></li>
+        <li><a href="tag_manage.html">TAG</a></li>
+      </ul>
+    </nav>
+  </div>
+</head>
 <body>
-  <h1>Informarket</h1>
-  <!--<img src="abehiroshi.jpeg" height="300" width="200">-->
-  <!--<p><a href="./mypage.html">マイページ</a></p>-->
-  <!--<p><a href="./post_check.html">投稿</a></p>-->
-  <!--<p><a href="./logout.html">ログアウト</a></p>-->
-  
-  <h1>カタログ</h1>
-  <table width="700">
-  <tbody>
+  <h1 style="text-align: center">C A T A L O G</h1>
 
+  <br>
+  <table class="catalog" width="700">
+  <tbody>
     <tr>
+      <form action="signin.html" method="get" class="search_box">
+        <input type="text" id="search-bar" placeholder="keywords">
+        <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+      </form>
+    <tr>
+    <tr class="table_one">
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品1</p>
@@ -43,7 +44,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品2</p>
@@ -51,7 +52,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品3</p>
@@ -59,7 +60,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品4</p>
@@ -67,7 +68,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -76,9 +77,9 @@
       </td>
     </tr>
 
-    <tr>
+    <tr class="table_two">
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -86,7 +87,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -94,7 +95,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -102,7 +103,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -110,50 +111,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
-          <a href="product_detail.html">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
-            <p>商品5</p>
-          </a>
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <div style="display: inline-block; text-align: center;">
-          <a href="product_detail.html">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
-            <p>商品5</p>
-          </a>
-        </div>
-      </td>
-      <td>
-        <div style="display: inline-block; text-align: center;">
-          <a href="product_detail.html">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
-            <p>商品5</p>
-          </a>
-        </div>
-      </td>
-      <td>
-        <div style="display: inline-block; text-align: center;">
-          <a href="product_detail.html">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
-            <p>商品5</p>
-          </a>
-        </div>
-      </td>
-      <td>
-        <div style="display: inline-block; text-align: center;">
-          <a href="product_detail.html">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
-            <p>商品5</p>
-          </a>
-        </div>
-      </td>
-      <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -162,9 +120,9 @@
       </td>
     </tr>
 
-    <tr>
+    <tr class="table_three">
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -172,7 +130,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -180,7 +138,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -188,7 +146,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -196,7 +154,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -205,9 +163,9 @@
       </td>
     </tr>
 
-    <tr>
+    <tr class="table_four">
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -215,7 +173,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -223,7 +181,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -231,7 +189,7 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
@@ -239,10 +197,53 @@
         </div>
       </td>
       <td>
-        <div style="display: inline-block; text-align: center;">
+        <div>
           <a href="product_detail.html">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
             <p>商品5</p>
+          </a>
+        </div>
+      </td>
+    </tr>
+
+    <tr class="table_five">
+      <td>
+        <div>
+          <a href="product_detail.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
+            <p>商品5</p>
+          </a>
+        </div>
+      </td>
+      <td>
+        <div>
+          <a href="product_detail.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
+            <p>商品5</p>
+          </a>
+        </div>
+      </td>
+      <td>
+        <div>
+          <a href="product_detail.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
+            <p>商品5</p>
+          </a>
+        </div>
+      </td>
+      <td>
+        <div>
+          <a href="product_detail.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
+            <p>商品5</p>
+          </a>
+        </div>
+      </td>
+      <td>
+        <div>
+          <a href="product_detail.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsPA7jVuPp3vyNdcFz2EzoSitYZWmfd7ngg&amp;usqp=CAU" height="100" width="100">
+            <p>商品30</p>
           </a>
         </div>
       </td>

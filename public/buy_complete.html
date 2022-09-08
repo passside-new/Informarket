@@ -4,20 +4,52 @@
   <meta charset="utf-8">
   <title>Informarket</title>
   <link rel="stylesheet" href="style.css" type="text/css">
+  <div class="header" style="text-align:left">
+    <div class="header-logo">
+      <a href="homepage.html"><img src="image/logo-sample.png" height="70" width="70"></a>
+    </div>
+    <nav class="header-list">
+      <ul class="header-list-right">
+        <li><a href="logout.html" id="header-right">LOGOUT</a></li>
+        <li><a href="point.html">POINT</a></li>
+        <li><a href="mypage.html">MYPAGE</a></li>
+      </ul>
+      <br>
+      <ul class="header-list-left">
+        <li><a href="homepage.html">CATALOG</a></li>
+        <li><a href="tag_manage.html">TAG</a></li>
+      </ul>
+    </nav>
+  </div>
 </head>
 <body>
-  <h1>購入完了</h1>
-  <br>
-  <p>ありがとうございます。</p>
-  <br>
-  <p>購入商品内容</p>
-  <p>商品名：</p>
-  <p>購入日：</p>
-  <br>
-  <p>購入済みファイル一覧は　<a href="download_file.html">こちら</a></p>
-  <br>
-  <p>商品確認後はレビュー評価をお願いします！</p>
-  <p>評価していただいた方には〇ポイント差し上げます。</p>
+  <div class="buy_complete">
+    <h1>購入完了</h1>
+    <p>ありがとうございます。</p><br><br>
+    <p>購入商品内容</p>
+    <table class="table_buy_complete">
+      <tr>
+        <td>
+          <label>商品名：</label>
+        </td>
+        <td><!--ここに商品名-->
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>購入日：</label>
+        </td>
+        <td><!--ここに購入日-->
+        </td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <p>購入済みファイル一覧は　<a href="download_file.html" class="btn_to_review">こちら</a></p>
+    <br>
+    <p>商品確認後はレビュー評価をお願いします！</p>
+    <p>評価していただいた方には5ポイント差し上げます。</p>
+  </div>
 </body>
 <script type="module" src="./subscriber.js"></script>
 </html>
