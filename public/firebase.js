@@ -42,10 +42,6 @@ onAuthStateChanged(auth, (user) => {
         const name = fileContent.name;
         const ext = name.split('.').pop();
         const storageRef = sRef(storage, `file/${id}.${ext}`);
-        uploadBytes(storageRef, fileContent).then((snapshot) => {
-          console.log('Uploaded an array!');
-          console.log()
-          });
           
       //const tagName = encodeURIComponent(tag.value);
       document.cookie = 'fileName=' + name;
@@ -55,9 +51,10 @@ onAuthStateChanged(auth, (user) => {
       document.cookie = 'id=' + id;
       document.cookie = 'ext=' + ext;
       //document.cookie = 'tagName=' + tag.value;
-      setTimeout(function(){
-        location.href = './post_check.html';
-      }, 1*1000);
+      uploadBytes(storageRef, fileContent).then((snapshot) => {
+          console.log('Uploaded an array!');
+          location.href = './post_check.html';
+          });
     }
     });
   } else {
