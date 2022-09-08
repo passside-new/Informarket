@@ -1,0 +1,13 @@
+{
+  "parameterGroups": {
+    "mono": {
+      "parameters": {
+        "foo": {
+          "defaultValue": {
+            "value": "bar"
+          }
+        }
+      }
+    }
+  }
+}
