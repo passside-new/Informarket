@@ -53,77 +53,76 @@
     const database = getDatabase(app);
     const storage = getStorage(app);
     const auth = getAuth();
+    const user = auth.currentUser;
+    onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        const dbref=ref(database);
+        var currentpoint = document.getElementById("Currentpoint");
+        get(child(dbref, 'users/' + uid)).then((snapshot)=>{
+            if(snapshot.exists()){
+                console.log(snapshot.val());
+                currentpoint.value=snapshot.val().userpoint;
 
-        const user = auth.currentUser;
-        onAuthStateChanged(auth, (user) => {
-        if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
-            const uid = user.uid;
-            const dbref=ref(database);
-            var currentpoint = document.getElementById("Currentpoint");
-            get(child(dbref, 'users/' + uid)).then((snapshot)=>{
+                console.log(location.hash);
+
+                const post_id_s = location.hash;
+                const post_id = post_id_s.slice(1);
+                var product_name = document.getElementById("product_name");
+                var product_describe = document.getElementById("product_describe");
+                var price = document.getElementById("price");
+
+                get(child(dbref, 'product/' + post_id )).then((snapshot)=>{
                 if(snapshot.exists()){
                     console.log(snapshot.val());
-                    currentpoint.value=snapshot.val().userpoint;
+                    product_name.value = snapshot.val().product_name;
+                    product_describe.value = snapshot.val().product_describe;
+                    price.value = snapshot.val().price;
 
-                    console.log(location.hash);
+                    buy.addEventListener('click',(e)=>{
+                        if(currentpoint.value >= price.value){
+                          const ext = snapshot.val().ext;
+                          console.log(ext+'ははは');
+                          console.log(post_id+'はは');
+                          const url = getDownloadURL(sRef(storage, `file/${post_id}.${ext}`)).then((url)=>{
+                            console.log(url);
+                            location.href = url;
+                          },(err)=>{
+                            console.log("error", err);
+                          }
+                          )
 
-                    const post_id_s = location.hash;
-                    const post_id = post_id_s.slice(1);
-                    var product_name = document.getElementById("product_name");
-                    var product_describe = document.getElementById("product_describe");
-                    var price = document.getElementById("price");
-
-                    get(child(dbref, 'product/' + post_id )).then((snapshot)=>{
-                    if(snapshot.exists()){
-                        console.log(snapshot.val());
-                        product_name.value = snapshot.val().product_name;
-                        product_describe.value = snapshot.val().product_describe;
-                        price.value = snapshot.val().price;
-
-                        buy.addEventListener('click',(e)=>{
-                            if(currentpoint.value >= price.value){
-                              const ext = snapshot.val().ext;
-                              console.log(ext+'ははは');
-                              console.log(post_id+'はは');
-                              const url = getDownloadURL(sRef(storage, `file/${post_id}.${ext}`)).then((url)=>{
-                                console.log(url);
-                                location.href = url;
-                              },(err)=>{
-                                console.log("error", err);
-                              }
-                              )
-
-                              update(ref(database, 'users/' + user.uid),{
-                                userpoint: currentpoint.value - price.value,
-                              });
-                              alert('Successful!');
-                            }
-                            else{
-                              alert('ポイントが足りません!');
-                            }
-                        });
-                    }else{
-                            alert("No data found");
+                          update(ref(database, 'users/' + user.uid),{
+                            userpoint: currentpoint.value - price.value,
+                          });
+                          alert('Successful!');
                         }
-                    })
-                    .catch((error)=>{
-                        alert("unsuccessful, error"+error);
+                        else{
+                          alert('ポイントが足りません!');
+                        }
                     });
                 }else{
-                    alert("No data found");
-                }
-            })
-            .catch((error)=>{
-                alert("unsuccessful, error"+error);
-            });
-            
-        } else {
-            // User is signed out
-            location.replace("./index.html");
-        }
+                        alert("No data found");
+                    }
+                })
+                .catch((error)=>{
+                    alert("unsuccessful, error"+error);
+                });
+            }else{
+                alert("No data found");
+            }
+        })
+        .catch((error)=>{
+            alert("unsuccessful, error"+error);
         });
+            
+    } else {
+        // User is signed out
+        location.replace("./index.html");
+    }
+    });
 
 </script>
 </html>
