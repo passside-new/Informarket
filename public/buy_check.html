@@ -4,48 +4,28 @@
   <meta charset="utf-8">
   <title>Informarket</title>
   <link rel="stylesheet" href="style.css" type="text/css">
-  <div class="header" style="text-align:left">
-    <div class="header-logo">
-      <a href="homepage.html"><img src="image/logo-sample.png" height="70" width="70"></a>
-    </div>
-    <nav class="header-list">
-      <ul class="header-list-right">
-        <li><a href="logout.html" id="header-right">LOGOUT</a></li>
-        <li><a href="point.html">POINT</a></li>
-        <li><a href="mypage.html">MYPAGE</a></li>
-      </ul>
-      <br>
-      <ul class="header-list-left">
-        <li><a href="homepage.html">CATALOG</a></li>
-        <li><a href="tag_manage.html">TAG</a></li>
-      </ul>
-    </nav>
-  </div>
 </head>
 <body>
+  <h1>購入内容確認</h1>
+  <button type="button" onclick="catalog.html">←戻る</button>
+  <br>
+  <br>
+  <label>所有ポイント:</label> <input id="Currentpoint" type="text">
+  <br>
+  <label>消費ポイント:</label> <input id="price" type="number">
+  <br>
+  <p>商品内容</p>
+  <br>
+  <label>商品名:</label> <input id="product_name"   type="text">
+  <br>
+  <br>
+  <label>商品説明:</label> <br>
+  <textarea name="product_describe" id="product_describe"  rows="11" cols="50" minlength="10" maxlength="500" ></textarea>
+  <br>
 
-  <a href="product_detail.html" class="btn_back">back</a>
-  <div class="buy_check">
-    <h1>購入内容確認</h1>
-    <br>
-    <br>
-    <label>所有ポイント:</label> <input id="Currentpoint" type="text" disabled="disabled"/>
-    <br>
-    <label>消費ポイント:</label> <input id="price" type="number" disabled="disabled"/>
-    <br>
-    <p>商品内容</p>
-    <br>
-    <label>商品名:</label> <input id="product_name"   type="text" disabled="disabled"/>
-    <br>
-    <br>
-    <label>商品説明:</label> <br>
-    <textarea name="product_describe" id="product_describe"  rows="11" cols="50" minlength="10" maxlength="500" disabled="disabled"/></textarea>
-    <br>
-
-    <br>
-    <p>購入を確定するには下のボタンをクリックしてください。</p>
-    <a href="buy_complete.html" id="buy" class="btn_primary" name="buy">購入を確定</a>
-  </div>
+  <br>
+  <p>購入を確定するには下のボタンをクリックしてください。</p>
+  <input type="submit" id="buy" name="buy" value="購入を確定"/>
 </body>
 
 <script type="module">
@@ -53,6 +33,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
   import { getDatabase, set, ref, update, get, child,  } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-database.js";
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
+  import { getStorage, ref as sRef, getDownloadURL, } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -70,6 +51,7 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
+    const storage = getStorage(app);
     const auth = getAuth();
 
         const user = auth.currentUser;
@@ -102,12 +84,21 @@
 
                         buy.addEventListener('click',(e)=>{
                             if(currentpoint.value >= price.value){
+                              const ext = snapshot.val().ext;
+                              console.log(ext+'ははは');
+                              console.log(post_id+'はは');
+                              const url = getDownloadURL(sRef(storage, `file/${post_id}.${ext}`)).then((url)=>{
+                                console.log(url);
+                                location.href = url;
+                              },(err)=>{
+                                console.log("error", err);
+                              }
+                              )
+
                               update(ref(database, 'users/' + user.uid),{
                                 userpoint: currentpoint.value - price.value,
                               });
-                              setTimeout(function(){
-                                location.href = './buy_complete.html';
-                              }, 1*1000);
+                              alert('Successful!');
                             }
                             else{
                               alert('ポイントが足りません!');
@@ -127,7 +118,7 @@
             .catch((error)=>{
                 alert("unsuccessful, error"+error);
             });
-
+            
         } else {
             // User is signed out
             location.replace("./index.html");
